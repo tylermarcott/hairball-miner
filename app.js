@@ -49,7 +49,7 @@ function mineHairballs() {
   drawHairballs()
 }
 
-// TODO: create hairballs per click update
+
 // in this function I'm updating the hairballs per click, and calling them in each of my hairball click modifiers
 function drawHairballsPerClick(modifier) {
   hairballsPerClick += modifier
@@ -58,7 +58,7 @@ function drawHairballsPerClick(modifier) {
 }
 
 
-
+// TODO: for all upgrades, increase the price of the upgrade every time said upgrade is purchased
 
 function buyBrush() {
 
@@ -68,6 +68,7 @@ function buyBrush() {
     if (totalHairballs >= brush.price) {
       brush.quantity++
       totalHairballs -= 50
+      // brush.price *= 4
     }
 
     // updates DOM for brushes
@@ -81,6 +82,7 @@ function buyBrush() {
     hairballModifier += 1
 
     drawHairballsPerClick(1)
+    increaseUpgradePrice(brush)
   }
 }
 
@@ -143,6 +145,17 @@ function buyRoomba() {
   document.getElementById('roomba').innerText = roomba.quantity
 
   document.getElementById('roombaMultiplier').innerText = roomba.multiplier * roomba.quantity
+}
+
+
+// trying upgrade price first with our brush function. brush buy calls this function
+// I think what I want to do is create a template and insert the HTML, that's probably the easiest way
+
+function increaseUpgradePrice(upgrade) {
+  let upgradePriceTemplate = ''
+
+  upgradePriceTemplate +=
+
 }
 
 
