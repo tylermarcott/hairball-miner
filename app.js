@@ -6,7 +6,7 @@ let clickUpgrades = [
     multiplier: 1,
   },
   {
-    name: 'catnipBrush',
+    name: 'Catnip Brush',
     price: '200',
     quantity: '0',
     multiplier: 3,
@@ -21,7 +21,7 @@ let automaticUpgrades = [
     multiplier: 50,
   },
   {
-    name: 'roomba',
+    name: 'Roomba',
     price: '6000',
     quantity: '0',
     multiplier: 200,
@@ -33,7 +33,7 @@ let automaticUpgrades = [
 
 
 let totalHairballs = 0
-let hairballModifier = 100
+let hairballModifier = 10000
 
 
 // ok so I'm going to start writing what I need to do for every function:
@@ -49,9 +49,29 @@ function mineHairballs() {
 }
 
 
-function buyBrush() {
+function buyCatnipBrush() {
 
   if (totalHairballs >= 50) {
+    let catnipBrush = clickUpgrades.find(upgrade => upgrade.name = 'Catnip Brush')
+
+    if (totalHairballs >= catnipBrush.price) {
+      catnipBrush.quantity++
+      totalHairballs -= 50
+    }
+
+    // updates DOM for brushes
+    document.getElementById('catnipBrushCount').innerText = catnipBrush.quantity
+
+    drawHairballs()
+
+    // increases hairballModifier by one for increased click count
+    hairballModifier += 3
+  }
+}
+
+function buyBrush() {
+
+  if (totalHairballs >= 200) {
     let brush = clickUpgrades.find(upgrade => upgrade.name = 'brush')
 
     if (totalHairballs >= brush.price) {
@@ -83,6 +103,22 @@ function buyStickyLizard() {
   document.getElementById('stickyLizardCount').innerText = stickyLizard.quantity
 }
 
+function buyRoomba() {
+  let roomba = automaticUpgrades.find(upgrade => upgrade.name = 'Roomba')
+
+  if (totalHairballs >= roomba.price) {
+    roomba.quantity++
+
+    totalHairballs -= 6000
+  }
+
+  drawHairballs()
+
+  document.getElementById('roomba').innerText = roomba.quantity
+}
+
+
+
 
 
 function drawHairballs() {
@@ -91,14 +127,13 @@ function drawHairballs() {
 
 
 // NOTE: HEY NOW, DONT FORGET TO DRAW STUFF TO THE DOM OR IT AINT GUNNA WORK
-// FIXME: so I get the hairball multiplier of one sticky lizard, but as I get more sticky lizards, it's still staying at a 50HB multiplier, instead of going up to 50, 100, 150 etc... FIXY
 
 function collectAutoUpgrades() {
   automaticUpgrades.forEach(autoUpgrade => {
     if (autoUpgrade.quantity > 0) {
-      // totalHairballs += autoUpgrade.multiplier
 
-      hairballModifier = hairballModifier + (autoUpgrade.quantity * autoUpgrade.multiplier)
+      // this increase the total hairballs + the amount each auto upgrade gives us
+      totalHairballs = totalHairballs + (autoUpgrade.quantity * autoUpgrade.multiplier)
 
       drawHairballs()
     }
