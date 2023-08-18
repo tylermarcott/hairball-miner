@@ -1,0 +1,35 @@
+:root {
+  --genericColor: gray;
+}
+
+
+body {
+  /* FIXME: uncomment background image, taking too long to load for building */
+  /* background-image: url('https://images.unsplash.com/photo-1465101162946-4377e57745c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1478&q=80'); */
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-card {
+  background-color: var(--genericColor);
+  min-height: 20vh;
+  padding: 2em;
+}
+
+
+
+
+
+#spaceCat:hover {
+  cursor: pointer;
+  transform: (scale(1.10));
+}
+
+.marquee1 {
+  min-height: 68vh;
+}
+
+.button {
+  cursor: pointer;
+  transform: (scale(1.10));
+}
