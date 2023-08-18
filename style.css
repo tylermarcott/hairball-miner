@@ -10,12 +10,32 @@ body {
   background-position: center;
 }
 
-.hero-card {
+/* .hero-card {
   background-color: var(--genericColor);
   min-height: 20vh;
   padding: 2em;
+} */
+
+.space-card {
+  background-image: url('https://images.unsplash.com/photo-1465101162946-4377e57745c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1478&q=80');
+  background-size: cover;
+  background-position: center;
+  min-height: 18vh;
+  padding: 2em;
+  animation: glow 1s infinite alternate;
+  border-radius: 14px;
+  margin: 1vh;
 }
 
+@keyframes glow {
+  from {
+    box-shadow: 0 0 10px -10px #abe7ef;
+  }
+
+  to {
+    box-shadow: 0 0 10px 10px #aeedf4;
+  }
+}
 
 
 
