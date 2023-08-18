@@ -11,6 +11,8 @@ body {
   margin: none;
 }
 
+
+/* NOTE: wowowow so I went to a custom font that I found on the web, downloaded the file. I then went inside the file, found the exact font that I wanted, installed it to my drive, and was able to use it's name to call it as a font family in VS code */
 .star-wars {
   font-family: Star Jedi;
 }

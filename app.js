@@ -58,7 +58,6 @@ function drawHairballsPerClick(modifier) {
 }
 
 
-// TODO: for all upgrades, increase the price of the upgrade every time said upgrade is purchased
 
 function buyBrush() {
 
@@ -111,6 +110,10 @@ function buyCatnipBrush() {
     hairballModifier += 3
 
     drawHairballsPerClick(3)
+
+    catnipBrush.price = catnipBrush.price * 4
+
+    drawCatnipBrushPrice()
   }
 }
 
@@ -155,14 +158,15 @@ function buyRoomba() {
 // I think what I want to do is create a template and insert the HTML, that's probably the easiest way
 
 
+// NOTE: on draw functions, we should not be passing in an argument to the function.
 
-// TODO: this works, I just need to create the update price for the other 3 upgrades
 // This is working like a draw
 function drawBrushPrice() {
   // go grab the upgrade (i.e. brush)
   let brush = clickUpgrades[0]
 
 
+  // NOTE: I was able to fix my weird issue with having margin on the button transform by adding BG class m-0 into my template
   let upgradePriceTemplate = ''
 
   upgradePriceTemplate += `
@@ -172,6 +176,30 @@ function drawBrushPrice() {
   `
 
   document.getElementById('brush-price').innerHTML = upgradePriceTemplate
+}
+
+function drawCatnipBrushPrice() {
+  let catnipBrush = clickUpgrades[1]
+
+  let upgradePriceTemplate = ''
+
+  upgradePriceTemplate += `
+  <p class="m-0"> Buy Catnip Brush:
+  <span>${catnipBrush.price}</span>HB
+  </p>
+  `
+
+  document.getElementById('catnip-brush-price').innerHTML = upgradePriceTemplate
+}
+
+
+// TODO: finish these price functions
+function drawStickyLizardPrice() {
+
+}
+
+function drawRoombaPrice() {
+
 }
 
 
@@ -202,3 +230,7 @@ function collectAutoUpgrades() {
 }
 
 setInterval(collectAutoUpgrades, 3000)
+
+
+
+// TODO: I want to display the sticky lizard and roomba on click, bringing them into the screen on a marquee with the cat. see assets folder for gifs I already found for the 2
