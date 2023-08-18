@@ -1,5 +1,5 @@
 :root {
-  --genericColor: gray;
+  --spaceBlue: #aeedf4;
 }
 
 
@@ -46,12 +46,20 @@ body {
 }
 
 .marquee1 {
-  min-height: 68vh;
+  min-height: 65vh;
 }
 
 .button {
   cursor: pointer;
   transform: (scale(1.10));
+}
+
+.custom-margin {
+  margin: 3px;
+}
+
+.spaceblue-bg {
+  background-color: var(--spaceBlue);
 }
 
 .apple-cat {

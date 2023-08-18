@@ -49,25 +49,7 @@ function mineHairballs() {
 }
 
 
-function buyCatnipBrush() {
 
-  if (totalHairballs >= 50) {
-    let catnipBrush = clickUpgrades.find(upgrade => upgrade.name == 'Catnip Brush')
-
-    if (totalHairballs >= catnipBrush.price) {
-      catnipBrush.quantity++
-      totalHairballs -= 50
-    }
-
-    // updates DOM for brushes
-    document.getElementById('catnipBrushCount').innerText = catnipBrush.quantity
-
-    drawHairballs()
-
-    // increases hairballModifier by one for increased click count
-    hairballModifier += 3
-  }
-}
 
 function buyBrush() {
 
@@ -82,12 +64,39 @@ function buyBrush() {
     // updates DOM for brushes
     document.getElementById('brushCount').innerText = brush.quantity
 
+    document.getElementById('brushMultiplier').innerText = brush.multiplier * brush.quantity
+
     drawHairballs()
 
     // increases hairballModifier by one for increased click count
     hairballModifier += 1
   }
 }
+
+
+function buyCatnipBrush() {
+
+  if (totalHairballs >= 50) {
+    let catnipBrush = clickUpgrades.find(upgrade => upgrade.name == 'Catnip Brush')
+
+    if (totalHairballs >= catnipBrush.price) {
+      catnipBrush.quantity++
+      totalHairballs -= 50
+    }
+
+    // updates DOM for brushes
+    document.getElementById('catnipBrushCount').innerText = catnipBrush.quantity
+
+    document.getElementById('catnipBrushMultiplier').innerText = catnipBrush.multiplier * catnipBrush.quantity
+
+    drawHairballs()
+
+    // increases hairballModifier by one for increased click count
+    hairballModifier += 3
+  }
+}
+
+
 
 function buyStickyLizard() {
   let stickyLizard = automaticUpgrades.find(upgrade => upgrade.name == 'Sticky Lizard')
@@ -101,10 +110,12 @@ function buyStickyLizard() {
   drawHairballs()
 
   document.getElementById('stickyLizardCount').innerText = stickyLizard.quantity
+
+  document.getElementById('stickyLizardMultiplier').innerText = stickyLizard.multiplier * stickyLizard.quantity
 }
 
 
-// FIXME: roomba is only yielding 50HB, which is the same amount as sticky lizard, per interval. not sure why.
+
 function buyRoomba() {
   let roomba = automaticUpgrades.find(upgrade => upgrade.name == 'Roomba')
 
@@ -117,6 +128,8 @@ function buyRoomba() {
   drawHairballs()
 
   document.getElementById('roomba').innerText = roomba.quantity
+
+  document.getElementById('roombaMultiplier').innerText = roomba.multiplier * roomba.quantity
 }
 
 

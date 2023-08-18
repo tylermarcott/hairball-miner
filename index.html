@@ -44,7 +44,7 @@
   <footer>
 
     <section>
-      <div class="text-light">
+      <div class="text-light p-2 ms-3 fs-5">
         <div>Total Hairballs:</div>
         <div id="hairballs">0</div>
       </div>
@@ -53,28 +53,49 @@
     <!-- stat sheet -->
     <section class="row space-card">
       <!-- upgrades sheet -->
-      <section class="col-6">
+      <section class="col-6 text-light">
         <div class="row">
           <div class="col-6 fw-bold">Click Upgrades</div>
           <div class="col-6 fw-bold">Automatic Upgrades</div>
         </div>
         <div class="row">
-          <div class="col-6 btn btn-button bg-warning" onclick="buyBrush()">Buy Brush: 50HB</div>
 
-          <div class="col-6 btn btn-button bg-warning" onclick="buyStickyLizard()">Buy Sticky Lizard: 2500HB</div>
+          <div class="col-5 btn btn-button spaceblue-bg custom-margin" onclick="buyBrush()">Buy Brush: 50HB
+          </div>
+
+          <div class="col-5 btn btn-button spaceblue-bg custom-margin" onclick="buyStickyLizard()">Buy Sticky Lizard:
+            2500HB</div>
 
         </div>
         <div class="row">
 
-          <div class="col-6 btn btn-button bg-warning" onclick="buyCatnipBrush()">Buy Catnip Brush: 200HB</div>
-          <div class="col-6 btn btn-button bg-warning" onclick="buyRoomba()">Buy Roomba: 6000HB</div>
+          <div class="col-5 btn btn-button spaceblue-bg custom-margin" onclick="buyCatnipBrush()">Buy Catnip Brush:
+            200HB
+          </div>
+          <div class="col-5 btn btn-button spaceblue-bg custom-margin" onclick="buyRoomba()">Buy Roomba: 6000HB</div>
         </div>
       </section>
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       <!-- applied upgrades sheet -->
       <!-- TODO: I have to add syntax to where it will show how many extra hairballs are being given for each of the upgrades. I also have to apply some styling because it's a little wonky rn -->
-      <section class="col-6">
+      <section class="col-6 text-light">
         <div class="row">
           <div class="col-6 fw-bold">Click Stats:</div>
           <div class="col-6 fw-bold">Automatic Stats:</div>
@@ -85,26 +106,29 @@
         <div class="row">
           <div class="col-6">
             <div class="row">
-              <span id="brushCount">0</span>
-              <span>Brushes</span>
+              <span class="col-3" id="brushCount">0</span>
+              <span class="col-4">Brushes</span>
+              <span class="col-3" id="brushMultiplier">0</span>
             </div>
             <div class="row">
-              <span id="catnipBrushCount">0</span>
-              <span>Catnip Brushes</span>
+              <span class="col-3" id="catnipBrushCount">0</span>
+              <span class="col-4">Catnip Brushes</span>
+              <span class="col-3" id="catnipBrushMultiplier">0</span>
             </div>
 
           </div>
 
 
           <div class="col-6">
-            <span id="stickyLizardCount">0</span>
-            <span>Sticky Lizards</span>
-            <span></span>
-
             <div class="row">
-              <span id="roomba">0</span>
-              <span>Roombas</span>
-              <span></span>
+              <span class="col-3" id="stickyLizardCount">0</span>
+              <span class="col-4">Sticky Lizards</span>
+              <span class="col-3" id="stickyLizardMultiplier">0</span>
+            </div>
+            <div class="row">
+              <span class="col-3" id="roomba">0</span>
+              <span class="col-4">Roombas</span>
+              <span class="col-3" id="roombaMultiplier">0</span>
             </div>
           </div>
         </div>
