@@ -52,7 +52,7 @@ function mineHairballs() {
 function buyCatnipBrush() {
 
   if (totalHairballs >= 50) {
-    let catnipBrush = clickUpgrades.find(upgrade => upgrade.name = 'Catnip Brush')
+    let catnipBrush = clickUpgrades.find(upgrade => upgrade.name == 'Catnip Brush')
 
     if (totalHairballs >= catnipBrush.price) {
       catnipBrush.quantity++
@@ -72,7 +72,7 @@ function buyCatnipBrush() {
 function buyBrush() {
 
   if (totalHairballs >= 200) {
-    let brush = clickUpgrades.find(upgrade => upgrade.name = 'brush')
+    let brush = clickUpgrades.find(upgrade => upgrade.name == 'brush')
 
     if (totalHairballs >= brush.price) {
       brush.quantity++
@@ -90,7 +90,7 @@ function buyBrush() {
 }
 
 function buyStickyLizard() {
-  let stickyLizard = automaticUpgrades.find(upgrade => upgrade.name = 'Sticky Lizard')
+  let stickyLizard = automaticUpgrades.find(upgrade => upgrade.name == 'Sticky Lizard')
 
   if (totalHairballs >= stickyLizard.price) {
     stickyLizard.quantity++
@@ -103,8 +103,10 @@ function buyStickyLizard() {
   document.getElementById('stickyLizardCount').innerText = stickyLizard.quantity
 }
 
+
+// FIXME: roomba is only yielding 50HB, which is the same amount as sticky lizard, per interval. not sure why.
 function buyRoomba() {
-  let roomba = automaticUpgrades.find(upgrade => upgrade.name = 'Roomba')
+  let roomba = automaticUpgrades.find(upgrade => upgrade.name == 'Roomba')
 
   if (totalHairballs >= roomba.price) {
     roomba.quantity++
@@ -131,6 +133,10 @@ function drawHairballs() {
 function collectAutoUpgrades() {
   automaticUpgrades.forEach(autoUpgrade => {
     if (autoUpgrade.quantity > 0) {
+
+      console.log("here's a ", autoUpgrade.name, autoUpgrade.multiplier, autoUpgrade.quantity)
+
+      //NOTE: from creating this log, I can see what's going on. It's treating a lizard and a roomba as the same thing. It's using the sticky lizard multiplier for both the lizard and the roomba
 
       // this increase the total hairballs + the amount each auto upgrade gives us
       totalHairballs = totalHairballs + (autoUpgrade.quantity * autoUpgrade.multiplier)

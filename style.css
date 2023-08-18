@@ -4,8 +4,8 @@
 
 
 body {
-  /* FIXME: uncomment background image, taking too long to load for building */
   /* background-image: url('https://images.unsplash.com/photo-1465101162946-4377e57745c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1478&q=80'); */
+  background-image: url('https://media0.giphy.com/media/U3qYN8S0j3bpK/200w.gif?cid=790b7611f26ep1dq0nhcju5erufbrw06n7cf5wej7t04tm00&ep=v1_gifs_search&rid=200w.gif&ct=g');
   background-size: cover;
   background-position: center;
 }
@@ -33,3 +33,21 @@ body {
   cursor: pointer;
   transform: (scale(1.10));
 }
+
+.apple-cat {
+  min-width: 20vh;
+  /* animation: glow 1s infinite alternate; */
+  /* box-shadow: 0px 0px 5px #fff; */
+}
+
+/* TODO: cool syntax for creating a pulsing glow around animation. Only thing is, it glows in a transparent box around image instead of around image itself. */
+
+/* @keyframes glow {
+  from {
+    box-shadow: 0 0 10px -10px #aef4af;
+  }
+
+  to {
+    box-shadow: 0 0 10px 10px #aef4af;
+  }
+} */
