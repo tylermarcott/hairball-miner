@@ -82,7 +82,10 @@ function buyBrush() {
     hairballModifier += 1
 
     drawHairballsPerClick(1)
-    increaseUpgradePrice(brush)
+
+    brush.price = brush.price * 2
+
+    drawBrushPrice()
   }
 }
 
@@ -151,11 +154,24 @@ function buyRoomba() {
 // trying upgrade price first with our brush function. brush buy calls this function
 // I think what I want to do is create a template and insert the HTML, that's probably the easiest way
 
-function increaseUpgradePrice(upgrade) {
+
+
+// TODO: this works, I just need to create the update price for the other 3 upgrades
+// This is working like a draw
+function drawBrushPrice() {
+  // go grab the upgrade (i.e. brush)
+  let brush = clickUpgrades[0]
+
+
   let upgradePriceTemplate = ''
 
-  upgradePriceTemplate +=
+  upgradePriceTemplate += `
+  <p class="m-0"> Buy Brush: 
+  <span>${brush.price}</span>HB
+  </p>
+  `
 
+  document.getElementById('brush-price').innerHTML = upgradePriceTemplate
 }
 
 
