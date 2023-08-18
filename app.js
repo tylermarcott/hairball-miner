@@ -34,6 +34,7 @@ let automaticUpgrades = [
 
 let totalHairballs = 0
 let hairballModifier = 10000
+let hairballsPerClick = 0
 
 
 // ok so I'm going to start writing what I need to do for every function:
@@ -46,6 +47,14 @@ function mineHairballs() {
 
   // prints totalHairballs to DOM
   drawHairballs()
+}
+
+// TODO: create hairballs per click update
+// in this function I'm updating the hairballs per click, and calling them in each of my hairball click modifiers
+function drawHairballsPerClick(modifier) {
+  hairballsPerClick += modifier
+
+  document.getElementById('hairballsPerClick').innerText = hairballsPerClick
 }
 
 
@@ -70,6 +79,8 @@ function buyBrush() {
 
     // increases hairballModifier by one for increased click count
     hairballModifier += 1
+
+    drawHairballsPerClick(1)
   }
 }
 
@@ -93,6 +104,8 @@ function buyCatnipBrush() {
 
     // increases hairballModifier by one for increased click count
     hairballModifier += 3
+
+    drawHairballsPerClick(3)
   }
 }
 
