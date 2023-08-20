@@ -1,5 +1,6 @@
 :root {
   --spaceBlue: #aeedf4;
+  --white: #e3e3e3;
 }
 
 
@@ -15,6 +16,8 @@ body {
 /* NOTE: wowowow so I went to a custom font that I found on the web, downloaded the file. I then went inside the file, found the exact font that I wanted, installed it to my drive, and was able to use it's name to call it as a font family in VS code */
 .star-wars {
   font-family: Star Jedi;
+  color: var(--white);
+  text-shadow: 0 0 20px #9D00FF;
 }
 
 
@@ -76,9 +79,6 @@ body {
   min-width: 20vh;
 }
 
-.margin-none {
-  margin-bottom: none;
-}
 
 /* TODO: cool syntax for creating a pulsing glow around animation. Only thing is, it glows in a transparent box around image instead of around image itself. */
 
@@ -91,6 +91,11 @@ body {
     box-shadow: 0 0 10px 10px #aef4af;
   }
 } */
+
+
+
+
+
 
 @media (max-width: 756px) {
   .marquee1 {

@@ -35,6 +35,7 @@ let automaticUpgrades = [
 let totalHairballs = 0
 let hairballModifier = 10000
 let hairballsPerClick = 0
+let autoUpgradeCounter = 0
 
 
 // ok so I'm going to start writing what I need to do for every function:
@@ -136,6 +137,7 @@ function buyStickyLizard() {
     stickyLizard.price = stickyLizard.price * 5
 
     drawStickyLizardPrice()
+
   }
 }
 
@@ -157,6 +159,7 @@ function buyRoomba() {
     roomba.price = roomba.price * 3
 
     drawRoombaPrice()
+
   }
 
 }
@@ -201,7 +204,7 @@ function drawCatnipBrushPrice() {
 }
 
 
-// TODO: finish these price functions
+
 function drawStickyLizardPrice() {
   let stickyLizard = automaticUpgrades[0]
 
@@ -212,6 +215,8 @@ function drawStickyLizardPrice() {
   `
 
   document.getElementById('sticky-lizard').innerHTML = upgradePriceTemplate
+
+  drawStickyLizardMultiplier()
 }
 
 
@@ -228,6 +233,27 @@ function drawRoombaPrice() {
   `
 
   document.getElementById('roomba').innerHTML = upgradePriceTemplate
+
+  drawRoombaMultiplier()
+}
+
+
+
+
+function drawStickyLizardMultiplier() {
+  let autoUpgrade = automaticUpgrades[0]
+
+  autoUpgradeCounter = autoUpgradeCounter + autoUpgrade.multiplier
+
+  document.getElementById('auto-upgrades').innerText = autoUpgradeCounter
+}
+
+function drawRoombaMultiplier() {
+  let autoUpgrade = automaticUpgrades[1]
+
+  autoUpgradeCounter = autoUpgradeCounter + autoUpgrade.multiplier
+
+  document.getElementById('auto-upgrades').innerText = autoUpgradeCounter
 }
 
 
