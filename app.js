@@ -141,7 +141,7 @@ function buyStickyLizard() {
   }
 }
 
-// FIXME: number of roombas bought is not increasing, all other functions work
+
 
 function buyRoomba() {
   let roomba = automaticUpgrades.find(upgrade => upgrade.name == 'Roomba')
@@ -152,16 +152,14 @@ function buyRoomba() {
     totalHairballs -= 6000
     drawHairballs()
 
-    document.getElementById('roomba').innerText = roomba.quantity
+    document.getElementById('roombaCount').innerText = roomba.quantity
 
     document.getElementById('roombaMultiplier').innerText = roomba.multiplier * roomba.quantity
 
     roomba.price = roomba.price * 3
 
     drawRoombaPrice()
-
   }
-
 }
 
 
