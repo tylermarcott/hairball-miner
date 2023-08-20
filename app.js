@@ -126,16 +126,20 @@ function buyStickyLizard() {
     stickyLizard.quantity++
 
     totalHairballs -= 2500
+
+    drawHairballs()
+
+    document.getElementById('stickyLizardCount').innerText = stickyLizard.quantity
+
+    document.getElementById('stickyLizardMultiplier').innerText = stickyLizard.multiplier * stickyLizard.quantity
+
+    stickyLizard.price = stickyLizard.price * 5
+
+    drawStickyLizardPrice()
   }
-
-  drawHairballs()
-
-  document.getElementById('stickyLizardCount').innerText = stickyLizard.quantity
-
-  document.getElementById('stickyLizardMultiplier').innerText = stickyLizard.multiplier * stickyLizard.quantity
 }
 
-
+// FIXME: number of roombas bought is not increasing, all other functions work
 
 function buyRoomba() {
   let roomba = automaticUpgrades.find(upgrade => upgrade.name == 'Roomba')
@@ -144,13 +148,17 @@ function buyRoomba() {
     roomba.quantity++
 
     totalHairballs -= 6000
+    drawHairballs()
+
+    document.getElementById('roomba').innerText = roomba.quantity
+
+    document.getElementById('roombaMultiplier').innerText = roomba.multiplier * roomba.quantity
+
+    roomba.price = roomba.price * 3
+
+    drawRoombaPrice()
   }
 
-  drawHairballs()
-
-  document.getElementById('roomba').innerText = roomba.quantity
-
-  document.getElementById('roombaMultiplier').innerText = roomba.multiplier * roomba.quantity
 }
 
 
@@ -195,11 +203,31 @@ function drawCatnipBrushPrice() {
 
 // TODO: finish these price functions
 function drawStickyLizardPrice() {
+  let stickyLizard = automaticUpgrades[0]
 
+  let upgradePriceTemplate = `
+  <p class="m-0"> Buy Sticky Lizard:
+  <span>${stickyLizard.price}</span>HB
+  </p>
+  `
+
+  document.getElementById('sticky-lizard').innerHTML = upgradePriceTemplate
 }
 
-function drawRoombaPrice() {
 
+
+function drawRoombaPrice() {
+  let roomba = automaticUpgrades[1]
+
+  let upgradePriceTemplate = ''
+
+  upgradePriceTemplate += `
+  <p class="m-0"> Buy Roomba:
+  <span>${roomba.price}</span>HB
+  </p>
+  `
+
+  document.getElementById('roomba').innerHTML = upgradePriceTemplate
 }
 
 

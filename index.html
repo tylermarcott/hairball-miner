@@ -15,7 +15,6 @@
 
 
 
-
 <body>
   <header>
     <h2 class="p-2 text-light star-wars fs-1 ms-2">Hairball Miner: Lost in Space</h2>
@@ -55,6 +54,8 @@
         <div id="hairballs">0</div>
       </div>
 
+      <!-- TODO: need to add a counter for how many resources user is receiving from automatic upgrades -->
+
     </section>
 
     <!-- stat sheet -->
@@ -66,31 +67,32 @@
           <div class="col-6 fw-bold">Automatic Upgrades</div>
         </div>
 
-        <!-- TODO: have to change html so it changes the cost of each item every time said item is purchased -->
-        <!-- to do this, I think I will have to do some string interpolation -->
-        <!-- maybe I have to create a template for the HTML in the row below...? -->
 
         <div class="row">
 
           <div class="col-5 btn btn-button spaceblue-bg custom-margin" onclick="buyBrush()" id="brush-price">
-
             <div class="margin-none">Buy Brush: 50HB</div>
-            <!-- Buy Brush: 50HB -->
             <!-- STUB: stub for updating upgrade price template after upgrade purchase -->
-
           </div>
 
-          <div class="col-5 btn btn-button spaceblue-bg custom-margin" onclick="buyStickyLizard()">Buy Sticky Lizard:
-            2500HB</div>
-
+          <div class="col-5 btn btn-button spaceblue-bg custom-margin" onclick="buyStickyLizard()" id="sticky-lizard">
+            <div>Buy Sticky Lizard: 2500HB</div>
+            <!-- STUB -->
+          </div>
         </div>
+
         <div class="row">
 
           <div class="col-5 btn btn-button spaceblue-bg custom-margin" onclick="buyCatnipBrush()"
             id="catnip-brush-price">
             <div>Buy Catnip Brush: 200HB</div>
+            <!-- STUB -->
           </div>
-          <div class="col-5 btn btn-button spaceblue-bg custom-margin" onclick="buyRoomba()">Buy Roomba: 6000HB</div>
+
+          <div class="col-5 btn btn-button spaceblue-bg custom-margin" onclick="buyRoomba()" id="roomba">
+            <div>Buy Roomba: 6000HB</div>
+            <!-- STUB -->
+          </div>
         </div>
       </section>
 
