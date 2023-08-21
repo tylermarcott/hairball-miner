@@ -32,7 +32,7 @@ let automaticUpgrades = [
 
 
 
-
+// FIXME: hairballs set at 100000 instead of 0 for testing purposes, change back if needed***
 let totalHairballs = 100000
 let hairballModifier = 1
 let hairballsPerClick = 1
