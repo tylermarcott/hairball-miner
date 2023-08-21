@@ -16,8 +16,15 @@
 
 
 <body>
-  <header>
-    <h2 class="p-2 star-wars fs-1 ms-2">Hairball Miner: Lost in Space</h2>
+  <header class="container fluid">
+    <div class="row justify-content-between">
+      <h2 class="col-9 p-2 star-wars fs-1">Hairball Miner: Lost in Space</h2>
+      <span class="col-3 p-2">
+        <span class="text-light fs-5">
+          All-time Hairballs: <span id="all-time-hairballs">0</span>
+        </span>
+      </span>
+    </div>
   </header>
 
 
@@ -74,12 +81,13 @@
 
         <div class="row">
 
-          <div class="col-5 btn btn-button spaceblue-bg custom-margin" onclick="buyBrush()" id="brush-price">
+          <div class="col-5 btn btn-button spaceblue-bg custom-margin button" onclick="buyBrush()" id="brush-price">
             <div class="margin-none">Buy Brush: 50HB</div>
             <!-- STUB: stub for updating upgrade price template after upgrade purchase -->
           </div>
 
-          <div class="col-5 btn btn-button spaceblue-bg custom-margin" onclick="buyStickyLizard()" id="sticky-lizard">
+          <div class="col-5 btn btn-button spaceblue-bg custom-margin button" onclick="buyStickyLizard()"
+            id="sticky-lizard">
             <div>Buy Sticky Lizard: 2500HB</div>
             <!-- STUB -->
           </div>
@@ -87,13 +95,13 @@
 
         <div class="row">
 
-          <div class="col-5 btn btn-button spaceblue-bg custom-margin" onclick="buyCatnipBrush()"
+          <div class="col-5 btn btn-button spaceblue-bg custom-margin button" onclick="buyCatnipBrush()"
             id="catnip-brush-price">
             <div>Buy Catnip Brush: 200HB</div>
             <!-- STUB -->
           </div>
 
-          <div class="col-5 btn btn-button spaceblue-bg custom-margin" onclick="buyRoomba()" id="roomba">
+          <div class="col-5 btn btn-button spaceblue-bg custom-margin button" onclick="buyRoomba()" id="roomba">
             <div>Buy Roomba: 6000HB</div>
             <!-- STUB -->
           </div>
@@ -119,15 +127,15 @@
 
       <!-- applied upgrades sheet -->
 
-      <section class="col-12 col-md-6 text-light">
-        <div class="row">
+      <section class="col-12 col-md-6">
+        <div class="row text-light mb-1">
           <div class="col-6 fw-bold">Click Stats:</div>
           <div class="col-6 fw-bold">Automatic Stats:</div>
         </div>
 
 
 
-        <div class="row">
+        <div class="row  stat-card">
           <div class="col-6">
             <div class="row">
               <span class="col-3" id="brushCount">0</span>

@@ -1,8 +1,10 @@
 :root {
   --spaceBlue: #aeedf4;
   --white: #e3e3e3;
+  --spaceGreen: #66be66;
 }
 
+/* NOTE: can put the following padding: 0 2em to create different padding on the same line, I think 0 is top bottom, 2em is right/left*/
 
 body {
   /* background-image: url('https://images.unsplash.com/photo-1465101162946-4377e57745c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1478&q=80'); */
@@ -10,6 +12,12 @@ body {
   background-size: cover;
   background-position: center;
   margin: none;
+}
+
+/* example of a clamp, this will change the size of the text for our h2 based on the size of the screen */
+/* min 3rem, max 7rem */
+h2 {
+  font-size: clamp(3rem, 1rem + 10vw, 7rem);
 }
 
 
@@ -20,13 +28,6 @@ body {
   text-shadow: 0 0 20px #9D00FF;
 }
 
-
-/* .hero-card {
-  background-color: var(--genericColor);
-  min-height: 20vh;
-  padding: 2em;
-} */
-
 .space-card {
   background-image: url('https://images.unsplash.com/photo-1465101162946-4377e57745c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1478&q=80');
   background-size: cover;
@@ -36,6 +37,13 @@ body {
   animation: glow 1s infinite alternate;
   border-radius: 14px;
   margin: 1vh;
+}
+
+.stat-card {
+  background-color: #aeedf4;
+  border-radius: 14px;
+  padding: 1em;
+  box-shadow: 0 0 10px #9D00FF;
 }
 
 @keyframes glow {
@@ -54,8 +62,15 @@ body {
 #spaceCat:hover {
   cursor: pointer;
   transform: (scale(1.10));
-  /* animation: glow 1s infinite alternate;
-  box-shadow: 0px 0px 5px #fff; */
+  animation: glow 1s infinite alternate;
+  text-shadow: 0px 0px 5px #fff;
+  border-radius: 40%;
+}
+
+.button:hover {
+  box-shadow: 0 0 10px #9D00FF;
+  background-color: var(--spaceGreen);
+  transition: 0.5s;
 }
 
 .marquee1 {
