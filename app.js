@@ -87,7 +87,7 @@ function buyBrush() {
 
     // NOTE: to do toFixed syntax for below, would have to put (brush.price * 1.2).toFixed(0) or something like that
 
-    brush.price = brush.price * 1.2
+    brush.price = brush.price * 2
 
     drawBrushPrice()
   }
