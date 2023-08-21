@@ -2,6 +2,7 @@
   --spaceBlue: #aeedf4;
   --white: #e3e3e3;
   --spaceGreen: #66be66;
+  --spacePurple: #9D00FF;
 }
 
 /* NOTE: can put the following padding: 0 2em to create different padding on the same line, I think 0 is top bottom, 2em is right/left*/
@@ -46,6 +47,15 @@ h2 {
   box-shadow: 0 0 10px #9D00FF;
 }
 
+.star-card {
+  background-image: url('https://cdn.pixabay.com/photo/2017/08/30/01/05/milky-way-2695569_1280.jpg');
+  background-size: cover;
+  background-position: center;
+  border-radius: 14px;
+  border: solid 1px;
+  border-color: var(--spacePurple);
+}
+
 @keyframes glow {
   from {
     box-shadow: 0 0 10px -10px #abe7ef;
@@ -61,7 +71,7 @@ h2 {
 
 #spaceCat:hover {
   cursor: pointer;
-  transform: (scale(1.10));
+  transition: 2s;
   animation: glow 1s infinite alternate;
   text-shadow: 0px 0px 5px #fff;
   border-radius: 40%;

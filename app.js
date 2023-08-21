@@ -1,13 +1,14 @@
+
 let clickUpgrades = [
   {
     name: 'brush',
-    price: '50',
+    price: 50,
     quantity: '0',
     multiplier: 1,
   },
   {
     name: 'Catnip Brush',
-    price: '200',
+    price: 200,
     quantity: '0',
     multiplier: 3,
   }
@@ -16,13 +17,13 @@ let clickUpgrades = [
 let automaticUpgrades = [
   {
     name: 'Sticky Lizard',
-    price: '2500',
+    price: 2500,
     quantity: '0',
     multiplier: 50,
   },
   {
     name: 'Roomba',
-    price: '6000',
+    price: 6000,
     quantity: '0',
     multiplier: 200,
   }
@@ -32,9 +33,9 @@ let automaticUpgrades = [
 
 
 
-let totalHairballs = 0
-let hairballModifier = 10000
-let hairballsPerClick = 0
+let totalHairballs = 100000
+let hairballModifier = 1
+let hairballsPerClick = 1
 let autoUpgradeCounter = 0
 
 
@@ -51,8 +52,10 @@ function mineHairballs() {
 }
 
 
+
 // in this function I'm updating the hairballs per click, and calling them in each of my hairball click modifiers
 function drawHairballsPerClick(modifier) {
+
   hairballsPerClick += modifier
 
   document.getElementById('hairballsPerClick').innerText = hairballsPerClick
@@ -62,13 +65,12 @@ function drawHairballsPerClick(modifier) {
 
 function buyBrush() {
 
-  if (totalHairballs >= 200) {
-    let brush = clickUpgrades.find(upgrade => upgrade.name == 'brush')
+  let brush = clickUpgrades.find(upgrade => upgrade.name == 'brush')
 
+  if (totalHairballs >= brush.price) {
     if (totalHairballs >= brush.price) {
       brush.quantity++
-      totalHairballs -= 50
-      // brush.price *= 4
+      totalHairballs = totalHairballs - brush.price
     }
 
     // updates DOM for brushes
@@ -83,21 +85,25 @@ function buyBrush() {
 
     drawHairballsPerClick(1)
 
-    brush.price = brush.price * 2
+    // NOTE: to do toFixed syntax for below, would have to put (brush.price * 1.2).toFixed(0) or something like that
+
+    brush.price = brush.price * 1.2
 
     drawBrushPrice()
   }
 }
 
 
+
 function buyCatnipBrush() {
 
-  if (totalHairballs >= 50) {
-    let catnipBrush = clickUpgrades.find(upgrade => upgrade.name == 'Catnip Brush')
+  let catnipBrush = clickUpgrades.find(upgrade => upgrade.name == 'Catnip Brush')
+
+  if (totalHairballs >= catnipBrush.price) {
 
     if (totalHairballs >= catnipBrush.price) {
       catnipBrush.quantity++
-      totalHairballs -= 50
+      totalHairballs -= catnipBrush.price
     }
 
     // updates DOM for brushes
@@ -126,7 +132,7 @@ function buyStickyLizard() {
   if (totalHairballs >= stickyLizard.price) {
     stickyLizard.quantity++
 
-    totalHairballs -= 2500
+    totalHairballs -= stickyLizard.price
 
     drawHairballs()
 
@@ -149,7 +155,7 @@ function buyRoomba() {
   if (totalHairballs >= roomba.price) {
     roomba.quantity++
 
-    totalHairballs -= 6000
+    totalHairballs -= roomba.price
     drawHairballs()
 
     document.getElementById('roombaCount').innerText = roomba.quantity
@@ -161,6 +167,7 @@ function buyRoomba() {
     drawRoombaPrice()
   }
 }
+
 
 
 // trying upgrade price first with our brush function. brush buy calls this function
@@ -186,6 +193,8 @@ function drawBrushPrice() {
 
   document.getElementById('brush-price').innerHTML = upgradePriceTemplate
 }
+
+
 
 function drawCatnipBrushPrice() {
   let catnipBrush = clickUpgrades[1]
@@ -237,7 +246,6 @@ function drawRoombaPrice() {
 
 
 
-
 function drawStickyLizardMultiplier() {
   let autoUpgrade = automaticUpgrades[0]
 
@@ -253,8 +261,6 @@ function drawRoombaMultiplier() {
 
   document.getElementById('auto-upgrades').innerText = autoUpgradeCounter
 }
-
-
 
 
 
