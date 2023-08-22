@@ -29,7 +29,7 @@ let automaticUpgrades = [
   }
 ]
 
-
+// NOTE: I need to do more testing in my projects, actually try to break your project!
 
 
 // FIXME: hairballs set at 100000 instead of 0 for testing purposes, change back if needed***
